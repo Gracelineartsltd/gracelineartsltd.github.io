@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Line Arts Limited | Create with Grace — Faith-Based Creative Book</title>
+    <meta name="description" content="Grace Line Arts Limited — Where creativity meets God's Word. Create with Grace: Bible stories + colouring & creative activities. Ages 4–8. £5.99 excl. shipping. Birmingham, UK.">
+    <style>
+        :root {
+            --navy: #0A2363;
+            --purple: #7B2CBF;
+            --teal: #0D9488;
+            --lime: #84CC16;
+            --offwhite: #F8F9FA;
+            --charcoal: #1F2937;
+            --gradient: linear-gradient(135deg, var(--purple), var(--teal), var(--lime));
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Georgia', serif;
+            line-height: 1.7;
+            color: var(--charcoal);
+            background: var(--offwhite);
+        }
+        header {
+            background: #fff;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+        .logo-mark {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--gradient);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold; font-size: 1.5rem;
+        }
+        .logo-text {
+            font-size: 1.4rem; font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.5px;
+        }
+        nav a {
+            margin-left: 1.2rem; color: var(--charcoal);
+            text-decoration: none; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 0.2rem;
+        }
+        section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+        h2 {
+            color: var(--navy); margin-bottom: 1.5rem; font-size: 1.8rem;
+            border-bottom: 3px solid transparent;
+            border-image: var(--gradient) 1;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .hero {
+            background: linear-gradient(rgba(10,35,99,0.88), rgba(123,44,191,0.75)), url('');
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 4rem 2rem;
+        }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 0.5rem; }
+        .hero .tagline {
+            font-size: 1.3rem; font-style: italic; margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        .launch-badge {
+            display: inline-block;
+            background: var(--gradient);
+            padding: 0.6rem 2rem;
+            border-radius: 50px;
+            font-weight: 700; font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+        .price-tag {
+            font-size: 2rem; font-weight: 700; margin: 1rem 0 0.3rem;
+        }
+        .price-note {
+            font-size: 1rem; opacity: 0.85;
+        }
+        .featured-book {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center;
+            background: #fff; border-radius: 16px; padding: 2.5rem;
+            box-shadow: 0 6px 25px rgba(10,35,99,0.1); margin: 2rem 0;
+        }
+        .book-cover-img {
+            width: 100%; max-width: 350px; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .book-title-lg {
+            font-size: 2.2rem; color: var(--navy); margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .book-desc-lg { font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8; }
+        .book-highlights { list-style: none; margin-bottom: 2rem; }
+        .book-highlights li { padding: 0.6rem 0; border-bottom: 1px solid #E5E7EB; }
+        .btn {
+            display: inline-block; background: var(--gradient); color: white;
+            padding: 0.9rem 2.5rem; border-radius: 8px; font-weight: 700;
+            text-decoration: none; transition: transform 0.3s ease;
+        }
+        .btn:hover { transform: scale(1.05); color: white; }
+        .story-box {
+            background: #fff; border-radius: 12px; padding: 2.5rem; margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(10,35,99,0.08);
+            border-left: 4px solid; border-image: var(--gradient) 1;
+        }
+        .story-box h3 { color: var(--navy); margin-bottom: 1rem; font-size: 1.3rem; }
+        .bible-verse {
+            background: linear-gradient(to right, rgba(10,35,99,0.05), rgba(13,148,136,0.05));
+            border-left: 4px solid; border-image: var(--gradient) 1;
+            padding: 1.5rem 2rem; margin: 2rem 0;
+            font-style: italic; font-size: 1.1rem; border-radius: 0 10px 10px 0;
+        }
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; margin-top: 2rem;
+        }
+        .product-card {
+            background: #fff; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(10,35,99,0.08);
+            transition: transform 0.3s ease; text-align: center;
+            padding-bottom: 1.5rem;
+        }
+        .product-card:hover { transform: translateY(-6px); }
+        .product-icon {
+            background: var(--gradient);
+            height: 160px; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 2.5rem;
+        }
+        .product-title {
+            color: var(--navy); font-weight: 700; margin: 1rem 1rem 0.5rem; font-size: 1.1rem;
+        }
+        .product-desc { padding: 0 1rem; color: #555; font-size: 0.9rem; line-height: 1.6; }
+        .contact-info { line-height: 2; margin-top: 1rem; }
+        .contact-info a { color: var(--teal); text-decoration: none; font-weight: 500; }
+        .contact-info a:hover { text-decoration: underline; }
+        footer {
+            background: var(--navy); color: #D1D5DB; text-align: center;
+            padding: 2rem; margin-top: 2rem; font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        @media (max-width: 768px) {
+            nav { margin-top: 1rem; }
+            nav a { margin: 0 0.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .featured-book { grid-template-columns: 1fr; text-align: center; }
+            .book-cover-img { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#home" class="logo-container">
+        <span class="logo-mark">G</span>
+        <span class="logo-text">Grace Line Arts Limited</span>
+    </a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#book">Our Book</a>
+        <a href="#story">Our Story</a>
+        <a href="#more">More Resources</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>🎨 Grace Line Arts Limited</h1>
+    <p class="tagline">✝️ Where creativity meets God's Word</p>
+    <p class="launch-badge">✨ NOW LAUNCHED ✨</p>
+    <p style="font-size: 1.5rem; font-weight: 600;">Create with Grace</p>
+    <p style="font-size: 1rem; opacity: 0.9; margin: 0.5rem 0;">Specially for ages 4–8</p>
+    <p class="price-tag">£5.99</p>
+    <p class="price-note">excluding shipping</p>
+</section>
+
+<section id="book">
+    <h2>📖 Create with Grace — Our First Book</h2>
+    
+    <div class="featured-book">
+        <div>
+            <img src="create-with-grace-cover.jpg" alt="Create with Grace — Bible stories and creative activities for children aged 4–8" class="book-cover-img">
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">📌 Save your cover image as <strong>create-with-grace-cover.jpg</strong> in the same folder ✅</p>
+        </div>
+        <div>
+            <h3 class="book-title-lg">Create with Grace</h3>
+            <p class="book-desc-lg">A beautiful journey where beloved Bible stories meet colouring, drawing, and creative fun — specially crafted for children aged 4 to 8. Every page invites them to create, learn, and grow in faith together.</p>
+            
+            <ul class="book-highlights">
+                <li>✏️ Colouring pages & drawing activities perfect for little hands</li>
+                <li>📖 Beloved Bible stories retold simply for ages 4–8</li>
+                <li>💛 Designed specifically for children aged 4–8 years</li>
+                <li>👨‍👩‍👧‍👦 Perfect for sharing as a family or at Sunday School</li>
+                <li>✨ Wholesome, distraction-free, faith-filled content</li>
+            </ul>
+
+            <p style="font-size: 1.4rem; font-weight: 700; color: var(--navy); margin: 1rem 0;">£5.99 <span style="font-size: 1rem; font-weight: normal; color: #666;">— excluding shipping</span></p>
+            
+            <a href="mailto:Gracelineltd@outlook.com?subject=Create%20with%20Grace%20Order" class="btn">📬 Order via Email</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Email us to order — we'll confirm shipping costs & total</p>
+        </div>
+    </div>
+</section>
+
+<section id="story">
+    <h2>Our Story</h2>
+    
+    <div class="story-box">
+        <h3>💛 How It All Began</h3>
+        <p>This company was born from a simple moment with my own children.</p>
+        <p style="margin-top: 1rem;">I went out looking for colouring books for my kids — they love creating, and I wanted something beautiful for them to enjoy. But everywhere I looked, it was the same: mythical creatures, cartoon characters from TV shows, nothing fresh, nothing meaningful.</p>
+        <p style="margin-top: 1rem;">And then it came to me: <em>Wouldn't it be wonderful to have something that sparks their creativity AND points them to God?</em></p>
+        <p style="margin-top: 1rem;">Why should choosing between fun and faith be necessary? Why can't they colour, draw, and create — and in the same moment, learn about the One who made them?</p>
+        <p style="margin-top: 1rem; font-weight: 500;">That is the heart of Grace Line Arts: creativity that matters, learning that lasts, and every page a reminder of God's love.</p>
+    </div>
+
+    <p>Based in <strong>Birmingham, United Kingdom</strong> — reaching families everywhere with faith-filled creative resources.</p>
+    <p style="margin-top: 0.5rem;">Our name says everything: <em><strong>Grace</strong></em> — rooted in God's free gift of love; <em><strong>Line</strong></em> — every stroke, puzzle piece, and activity draws young hearts closer to Him.</p>
+
+    <div class="bible-verse">
+        "Train up a child in the way he should go; even when he is old he will not depart from it."<br>
+        — Proverbs 22:6
+    </div>
+</section>
+
+<section id="more">
+    <h2>More Resources Coming Soon</h2>
+    <p>We're growing from our base in Birmingham! Here's what's in store — all designed to bring God's Word to life through creativity.</p>
+    
+    <div class="products-grid">
+        <div class="product-card">
+            <div class="product-icon">🃏</div>
+            <h3 class="product-title">Scripture Flash Cards</h3>
+            <p class="product-desc">Verses & truths made colourful — easy to learn, easy to love.</p>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">🧩</div>
+            <h3 class="product-title">Jixel Puzzles</h3>
+            <p class="product-desc">Build faith-themed art — patience, creativity & God's Word in one.</p>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">✏️</div>
+            <h3 class="product-title">Activity Packs</h3>
+            <p class="product-desc">Colouring, crafts & puzzles — hands-on fun that teaches God's love.</p>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">🧸</div>
+            <h3 class="product-title">Faith-Based Toys</h3>
+            <p class="product-desc">Thoughtfully designed toys inspiring kindness, prayer & Christian values.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <p>We'd love to hear from you — whether you're ordering a book, asking about new products, or sharing our mission.</p>
+    <div class="contact-info">
+        <p><strong>Grace Line Arts Limited</strong></p>
+        <p>📧 Email: <a href="mailto:Gracelineltd@outlook.com">Gracelineltd@outlook.com</a></p>
+        <p>📍 Birmingham, United Kingdom</p>
+        <p>📬 Registered in England & Wales — Company No. 17301898</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Grace Line Arts Limited — All Rights Reserved</p>
+    <p>Registered in England & Wales — Company Number: 17301898</p>
+    <p>📍 Birmingham, United Kingdom</p>
+    <p style="margin-top: 0.5rem;">"Every good and perfect gift is from above." — James 1:17</p>
+</footer>
+
+</body>
+</html>
