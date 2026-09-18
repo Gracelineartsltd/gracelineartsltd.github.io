@@ -260,7 +260,71 @@
         </div>
     </div>
 </section>
+<!-- ORDER FORM — With Thank You Confirmation -->
+<div style="background: #fff; border-radius: 16px; padding: 2.5rem; margin: 2rem 0; box-shadow: 0 6px 25px rgba(10,35,99,0.1);">
+    <h3 style="color: #0A2363; margin-bottom: 1.5rem; font-size: 1.5rem;">📬 Order Your Copy</h3>
+    <p style="margin-bottom: 1.5rem;">Fill in your details below and we'll confirm your order plus shipping costs by email.</p>
+    
+    <form action="https://formsubmit.co/Gracelineltd@outlook.com" method="POST">
+        <!-- Hidden Settings -->
+        <input type="hidden" name="_subject" value="New Order — Create with Grace">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://gracelineartsltd.github.io/#thankyou">
+        
+        <div style="margin-bottom: 1.2rem;">
+            <label for="fullname" style="display: block; font-weight: 600; color: #1F2937; margin-bottom: 0.5rem;">Your Full Name *</label>
+            <input type="text" id="fullname" name="Full Name" required
+                style="width: 100%; padding: 0.9rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+        </div>
+        
+        <div style="margin-bottom: 1.2rem;">
+            <label for="address" style="display: block; font-weight: 600; color: #1F2937; margin-bottom: 0.5rem;">Full Delivery Address *</label>
+            <textarea id="address" name="Delivery Address" rows="4" required
+                style="width: 100%; padding: 0.9rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+        </div>
+        
+        <div style="margin-bottom: 1.2rem;">
+            <label for="quantity" style="display: block; font-weight: 600; color: #1F2937; margin-bottom: 0.5rem;">Quantity *</label>
+            <input type="number" id="quantity" name="Quantity" min="1" value="1" required
+                style="width: 120px; padding: 0.9rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+            <span style="margin-left: 0.8rem; color: #666;">£5.99 per copy (excl. shipping)</span>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="message" style="display: block; font-weight: 600; color: #1F2937; margin-bottom: 0.5rem;">Additional Notes / Special Requests</label>
+            <textarea id="message" name="Notes" rows="4" placeholder="Any extra details — gift message, delivery instructions, or questions..."
+                style="width: 100%; padding: 0.9rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+        </div>
+        
+        <button type="submit"
+            style="background: linear-gradient(135deg, #7B2CBF, #0D9488, #84CC16); color: white; border: none; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.3s ease;">
+            ✅ Submit Order
+        </button>
+        
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+            We'll reply within 24–48 hours with total including shipping and payment details.
+        </p>
+    </form>
+</div>
 
+<!-- 🎉 THANK YOU MESSAGE — Paste this AFTER the form -->
+<div id="thankyou" style="display: none; background: linear-gradient(135deg, #F0FDF4, #F0F9FF); border-radius: 16px; padding: 3rem 2rem; margin: 2rem 0; text-align: center; border: 2px solid #86EFAC;">
+    <div style="font-size: 3rem; margin-bottom: 1rem;">✅🎉</div>
+    <h3 style="color: #166534; font-size: 1.6rem; margin-bottom: 1rem;">Thank You for Your Order!</h3>
+    <p style="font-size: 1.1rem; color: #374151; margin-bottom: 0.5rem;">We've received your order successfully 💛</p>
+    <p style="color: #6B7280;">We'll email you shortly with shipping costs and total payment details.</p>
+    <p style="margin-top: 1rem; font-weight: 600; color: #0A2363;">Grace Line Arts Limited 🙏✨</p>
+</div>
+
+<script>
+// Show Thank You message when returning from form submission
+if (window.location.hash === '#thankyou') {
+    document.querySelector('#thankyou').style.display = 'block';
+    // Scroll smoothly to the message
+    document.querySelector('#thankyou').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 <section id="contact">
     <h2>Get In Touch</h2>
     <p>We'd love to hear from you — whether you're ordering a book, asking about new products, or sharing our mission.</p>
