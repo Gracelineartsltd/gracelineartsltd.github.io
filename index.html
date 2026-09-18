@@ -89,7 +89,7 @@
             font-size: 1rem; opacity: 0.85;
         }
         .featured-book {
-            display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center;
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start;
             background: #fff; border-radius: 16px; padding: 2.5rem;
             box-shadow: 0 6px 25px rgba(10,35,99,0.1); margin: 2rem 0;
         }
@@ -107,7 +107,7 @@
         .btn {
             display: inline-block; background: var(--gradient); color: white;
             padding: 0.9rem 2.5rem; border-radius: 8px; font-weight: 700;
-            text-decoration: none; transition: transform 0.3s ease;
+            text-decoration: none; transition: transform 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
         }
         .btn:hover { transform: scale(1.05); color: white; }
         .story-box {
@@ -149,6 +149,68 @@
             padding: 2rem; margin-top: 2rem; font-size: 0.9rem;
         }
         footer p { margin: 0.3rem 0; }
+
+        /* --- ORDER FORM STYLES --- */
+        #order-form-container {
+            display: none;
+            margin-top: 2rem;
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 6px 25px rgba(10,35,99,0.1);
+        }
+        #order-form-container h3 {
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 1rem 0 0.4rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .submit-btn {
+            width: 100%;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        #thank-you-message {
+            display: none;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #F0FDF4, #F0F9FF);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid #86EFAC;
+        }
+        #thank-you-message h3 {
+            color: #166534;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         @media (max-width: 768px) {
             nav { margin-top: 1rem; }
             nav a { margin: 0 0.5rem; }
@@ -206,8 +268,48 @@
 
             <p style="font-size: 1.4rem; font-weight: 700; color: var(--navy); margin: 1rem 0;">£5.99 <span style="font-size: 1rem; font-weight: normal; color: #666;">— excluding shipping</span></p>
             
-            <a href="mailto:Gracelineltd@outlook.com?subject=Create%20with%20Grace%20Order" class="btn">📬 Order via Email</a>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Email us to order — we'll confirm shipping costs & total</p>
+            <!-- ✅ UPDATED BUTTON — NOW OPENS FORM -->
+            <button class="btn" id="open-order-form-btn">📬 Order via Email</button>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Fill in the form below — we'll confirm shipping costs & total</p>
+
+            <!-- ✅ ORDER FORM — HIDDEN UNTIL BUTTON CLICKED -->
+            <div id="order-form-container">
+                <h3>📋 Complete Your Order</h3>
+                
+                <form action="https://formsubmit.co/Gracelineltd@outlook.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Order — Create with Grace">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://gracelineartsltd.github.io/#thank-you-section">
+
+                    <label for="fullname">Your Full Name *</label>
+                    <input type="text" id="fullname" name="Full Name" required>
+
+                    <label for="address">Full Delivery Address *</label>
+                    <textarea id="address" name="Delivery Address" rows="4" required></textarea>
+
+                    <label for="quantity">Quantity *</label>
+                    <input type="number" id="quantity" name="Quantity" min="1" value="1" required style="width: 100px;">
+                    <small style="color:#666;">£5.99 per copy</small>
+
+                    <label for="notes">Additional Notes / Special Requests</label>
+                    <textarea id="notes" name="Notes" rows="3" placeholder="Gift message, delivery instructions, or anything else..."></textarea>
+
+                    <button type="submit" class="submit-btn">✅ Submit Order</button>
+                    <p class="form-note">We'll reply within 24–48 hours with total including shipping & payment details.</p>
+                </form>
+            </div>
+
+            <!-- ✅ THANK YOU MESSAGE — SHOWS AFTER SUBMISSION -->
+            <div id="thank-you-section">
+                <div id="thank-you-message">
+                    <div style="font-size: 3rem;">✅🎉</div>
+                    <h3>Thank You for Your Order!</h3>
+                    <p style="font-size: 1.1rem; color: #374151; margin: 1rem 0;">We've received your order successfully 💛</p>
+                    <p style="color: #6B7280;">We'll email you shortly with shipping costs and total payment details.</p>
+                    <p style="margin-top: 1.5rem; font-weight: 600; color: var(--navy);">Grace Line Arts Limited 🙏✨</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -278,6 +380,27 @@
     <p>📍 Birmingham, United Kingdom</p>
     <p style="margin-top: 0.5rem;">"Every good and perfect gift is from above." — James 1:17</p>
 </footer>
+
+<!-- ✅ JAVASCRIPT FOR FORM INTERACTION -->
+<script>
+    const orderBtn = document.getElementById('open-order-form-btn');
+    const formContainer = document.getElementById('order-form-container');
+    const thankYouMsg = document.getElementById('thank-you-message');
+
+    // Show form when button clicked
+    orderBtn.addEventListener('click', function() {
+        formContainer.style.display = 'block';
+        orderBtn.style.display = 'none';
+        formContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Show Thank You message after submission
+    if (window.location.hash === '#thank-you-section') {
+        formContainer.style.display = 'none';
+        thankYouMsg.style.display = 'block';
+        thankYouMsg.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
