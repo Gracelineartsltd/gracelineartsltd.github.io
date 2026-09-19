@@ -178,6 +178,9 @@
             font-size: 1rem;
             font-family: inherit;
         }
+        input:required:invalid, textarea:required:invalid {
+            border-color: #FCA5A5;
+        }
         .submit-btn {
             width: 100%;
             background: var(--gradient);
@@ -268,11 +271,11 @@
 
             <p style="font-size: 1.4rem; font-weight: 700; color: var(--navy); margin: 1rem 0;">£5.99 <span style="font-size: 1rem; font-weight: normal; color: #666;">— excluding shipping</span></p>
             
-            <!-- ✅ UPDATED BUTTON — NOW OPENS FORM -->
+            <!-- ✅ ORDER BUTTON -->
             <button class="btn" id="open-order-form-btn">📬 Order via Email</button>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Fill in the form below — we'll confirm shipping costs & total</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Fill in all details below — fields marked * are required</p>
 
-            <!-- ✅ ORDER FORM — HIDDEN UNTIL BUTTON CLICKED -->
+            <!-- ✅ UPDATED FORM — Phone & Email Now Required -->
             <div id="order-form-container">
                 <h3>📋 Complete Your Order</h3>
                 
@@ -284,6 +287,12 @@
 
                     <label for="fullname">Your Full Name *</label>
                     <input type="text" id="fullname" name="Full Name" required>
+
+                    <label for="email">Your Email Address *</label>
+                    <input type="email" id="email" name="Email Address" required>
+
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" name="Phone Number" required>
 
                     <label for="address">Full Delivery Address *</label>
                     <textarea id="address" name="Delivery Address" rows="4" required></textarea>
@@ -300,7 +309,7 @@
                 </form>
             </div>
 
-            <!-- ✅ THANK YOU MESSAGE — SHOWS AFTER SUBMISSION -->
+            <!-- ✅ THANK YOU MESSAGE -->
             <div id="thank-you-section">
                 <div id="thank-you-message">
                     <div style="font-size: 3rem;">✅🎉</div>
@@ -387,14 +396,12 @@
     const formContainer = document.getElementById('order-form-container');
     const thankYouMsg = document.getElementById('thank-you-message');
 
-    // Show form when button clicked
     orderBtn.addEventListener('click', function() {
         formContainer.style.display = 'block';
         orderBtn.style.display = 'none';
         formContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Show Thank You message after submission
     if (window.location.hash === '#thank-you-section') {
         formContainer.style.display = 'none';
         thankYouMsg.style.display = 'block';
